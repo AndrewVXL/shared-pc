@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Simulator – VXL Shared PC</title>
+    <title>AndrewVXL Site</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -21,23 +21,48 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             text-align: center;
             padding: 20px;
         }
 
+        /* Topbar */
+        .topbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .topbar .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .topbar .navbar button {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        .topbar .navbar button:hover {
+            color: #00e6ff;
+        }
+
+        /* Content */
         .container {
             width: 100%;
             max-width: 960px;
-        }
-
-        .page {
-            display: none;
-        }
-
-        .active {
-            display: block;
+            margin-top: 70px; /* To avoid overlap with the fixed topbar */
         }
 
         .header {
@@ -105,6 +130,7 @@
             background: #00ffcc;
         }
 
+        /* Responsive Design */
         @media (max-width: 600px) {
             .header {
                 font-size: 2em;
@@ -122,24 +148,35 @@
                 font-size: 1em;
                 padding: 10px 15px;
             }
+
+            .topbar .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="navbar">
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('machines')">Machines</button>
+            <button onclick="showPage('projects')">Projects</button>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
-            VXL Shared PC
+            AndrewVXL Site
         </div>
-
-        <button class="button" onclick="showPage('home')">Home</button>
-        <button class="button" onclick="showPage('machines')">Machines</button>
 
         <div id="home" class="page active">
             <div class="content">
                 <h1>Hello, I'm Andrew!</h1>
                 <p>I'm 14 years old and I have Autism and ADD.</p>
-                <p>Welcome to my PC simulator! Here you can learn about different machines I use or share.</p>
+                <p>Welcome to my site! Here you can learn about the machines I use or share and discover my upcoming projects.</p>
             </div>
         </div>
 
@@ -161,6 +198,13 @@
                 <div class="tag">Intel</div>
             </div>
         </div>
+
+        <div id="projects" class="page">
+            <div class="content">
+                <h1>Projects</h1>
+                <p>No projects listed yet, but stay tuned for updates!</p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -176,4 +220,3 @@
 
 </body>
 </html>
-
